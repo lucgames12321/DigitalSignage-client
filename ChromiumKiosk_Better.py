@@ -39,6 +39,13 @@ def open_chromium(url):
         "--disable-restore-session-state",  # Prevent session restoration prompts
         "--disable-gpu", #Disable GPU Acceleratrion
         "--disable-software-rasterizer", #Disable software rasterizer
+        "--disable-features=VizDisplayCompositor",  # Disables the Viz compositor, can help on low-powered systems
+        "--disable-dev-shm-usage",  # Prevents Chromium from using /dev/shm for shared memory (useful on Raspberry Pi)
+        "--no-sandbox",  # Runs Chromium without the sandbox (not recommended for security but might help here)
+        "--single-process",  # Forces Chromium to run as a single process (can reduce resource usage)
+        "--disable-background-timer-throttling",  # Disable background timer throttling (might prevent performance issues)
+        "--disable-backgrounding-occluded-windows",  # Prevents backgrounding of non-visible windows (useful in kiosk mode)
+        "--disable-breakpad",  # Disables the crash reporting (may avoid related crashes)
         url
     ]
 
