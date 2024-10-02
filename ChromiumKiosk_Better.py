@@ -1,5 +1,6 @@
 import subprocess
 import os
+import psutil
 
 # Function to change the URL in the current Chromium instance
 def change_url(new_url):
@@ -74,6 +75,7 @@ while True:
     # Exit condition
     if url.lower() == 'exit':
         print("Exiting the script.")
+        kill_chromium()
         break
 
     # Check if Chromium is already running
