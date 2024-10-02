@@ -59,8 +59,8 @@ def open_chromium(url):
 
 
     try:
-        # Run the command with the modified environment to launch Chromium
-        subprocess.Popen(chromium_command, env=env)
+        # Run the command with the modified environment to launch Chromium. Met de extra argumenten zodat we een warning niet krijgen in de command line.
+        subprocess.Popen(chromium_command, env=env, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
     except Exception as e:
         print(f"Error running Chromium in kiosk mode: {e}")
 
