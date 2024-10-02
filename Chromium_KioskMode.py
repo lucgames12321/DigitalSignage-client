@@ -1,4 +1,5 @@
 import subprocess
+import os
 
 # URL to open in Chromium
 url = "https://www.example.com"
@@ -14,8 +15,12 @@ chromium_command = [
     url
 ]
 
+# Set the DISPLAY environment variable to :0
+env = os.environ.copy()
+env["DISPLAY"] = ":0"  # Target the Raspberry Pi's screen
+
 try:
-    # Run the command
-    subprocess.run(chromium_command)
+    # Run the command with the modified environment
+    subprocess.run(chromium_command, env=env)
 except Exception as e:
     print(f"Error running Chromium in kiosk mode: {e}")
