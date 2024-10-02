@@ -1,13 +1,21 @@
-from selenium import webdriver
-from selenium.webdriver.support import ui
-from selenium.webdriver.chrome.options import Options
+import subprocess
 
-option = Options()
-option.add_argument("--start-maximized")
-option.add_argument("--no-sandbox")
-option.add_argument("--disable-web-security")
-option.add_argument("--ignore-certificate-errors")
-option.add_argument("--kiosk")
-option.add_argument("--disable-password-manager-reauthentication")
+# URL to open in Chromium
+url = "https://www.example.com"
 
-driver = webdriver.Chrome("C:/chromedriver.exe",0,option)
+# Command to launch Chromium in kiosk mode
+chromium_command = [
+    "chromium-browser",
+    "--kiosk",        # Kiosk mode (full screen without toolbars)
+    "--noerrdialogs", # Suppresses error dialogs
+    "--disable-infobars",  # Disable info bars
+    "--incognito",    # Optional: opens Chromium in incognito mode
+    "--disable-restore-session-state",  # Prevent session restoration prompts
+    url
+]
+
+try:
+    # Run the command
+    subprocess.run(chromium_command)
+except Exception as e:
+    print(f"Error running Chromium in kiosk mode: {e}")
