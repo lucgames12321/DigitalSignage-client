@@ -2,7 +2,8 @@ import subprocess
 import os
 
 # URL to open in Chromium
-url = "https://www.example.com"
+print ("Geef een URL op om te openen (Voorbeeld: https://youtube.com)")
+url = input()
 
 # Command to launch Chromium in kiosk mode
 chromium_command = [
