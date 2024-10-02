@@ -42,7 +42,6 @@ def open_chromium(url):
         "--disable-features=VizDisplayCompositor",  # Disables the Viz compositor, can help on low-powered systems
         "--disable-dev-shm-usage",  # Prevents Chromium from using /dev/shm for shared memory (useful on Raspberry Pi)
         "--no-sandbox",  # Runs Chromium without the sandbox (not recommended for security but might help here)
-        "--single-process",  # Forces Chromium to run as a single process (can reduce resource usage)
         "--disable-background-timer-throttling",  # Disable background timer throttling (might prevent performance issues)
         "--disable-backgrounding-occluded-windows",  # Prevents backgrounding of non-visible windows (useful in kiosk mode)
         "--disable-breakpad",  # Disables the crash reporting (may avoid related crashes)
@@ -59,8 +58,8 @@ def open_chromium(url):
 
 
     try:
-        # Run the command with the modified environment to launch Chromium. Met de extra argumenten zodat we een warning niet krijgen in de command line.
-        subprocess.Popen(chromium_command, env=env, stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+        # Run the command with the modified environment to launch Chromium.
+        subprocess.Popen(chromium_command, env=env)
     except Exception as e:
         print(f"Error running Chromium in kiosk mode: {e}")
 
