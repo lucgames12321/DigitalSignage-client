@@ -37,7 +37,6 @@ def open_chromium(url):
         "--disable-infobars",  # Disable info bars
         "--incognito",    # Optional: opens Chromium in incognito mode
         "--disable-restore-session-state",  # Prevent session restoration prompts
-        "--disable-gpu", #Disable GPU Acceleratrion
         "--disable-software-rasterizer", #Disable software rasterizer
         "--disable-features=VizDisplayCompositor",  # Disables the Viz compositor, can help on low-powered systems
         "--disable-dev-shm-usage",  # Prevents Chromium from using /dev/shm for shared memory (useful on Raspberry Pi)
