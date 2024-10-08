@@ -4,7 +4,7 @@ import webview
 
 def change_url(window):
     # wait a few seconds before changing url:
-    time.sleep(2)
+    time.sleep(5)
 
     # change url:
     window.load_url('https://pywebview.flowrl.com/hello')

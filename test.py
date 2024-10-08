@@ -27,7 +27,7 @@ y = screen_height - window_height - 0  # 50px padding from bottom (adjust for ta
 
 
 
-webview.create_window('Youtube Player', 'youtube_player.html', transparent=True, frameless=True, fullscreen=True)
+webview.create_window('Scherm 1', 'youtube_player.html', transparent=True, frameless=True, fullscreen=True)
 window = webview.create_window('Pop-up Window', 'popup.html', width=window_width, height=window_height, x=x, y=y, frameless=True)
 
 # Start the webview window
