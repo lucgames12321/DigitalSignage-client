@@ -10,20 +10,20 @@ This project contains a Python script designed to open a webpage on the chromium
 
 ## Installation
 
-1. Clone the repository:
+### 1. Clone the repository:
 ```bash
     git clone https://github.com/lucgames12321/DigitalSignage-client.git
 ```
-2. Navigate to the project directory:
+### 2. Navigate to the project directory:
 ```bash
     cd DigitalSignage-client
 ```
-3. (Optional) Create and activate a virtual environment:
+### 3. (Optional) Create and activate a virtual environment:
 ```bash
     python3 -m venv venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
-4. Install the required dependencies:
+### 4. Install the required dependencies:
 ```bash
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt install python3 python3-tk python3-webview xdotool chromium-browser
@@ -36,7 +36,7 @@ This project contains a Python script designed to open a webpage on the chromium
    - `chromium-browser` - Used as browser for displaying the webpages.
 
     
-1. Also reccomended:
+### 5. Also reccomended:
 ```bash
     sudo apt install unclutter
 ```
