@@ -1,28 +1,45 @@
 import tkinter as tk
-import webview  # pywebview to render HTML
+from tkinter import messagebox
 
-# Function to create the notification bar using pywebview inside tkinter
-def create_notification_bar():
+def create_notification_bar(notification_message):
+    # Create a root window (but we'll hide it, it's just needed for initialization)
     root = tk.Tk()
-    root.title("HTML Notification Bar")
+    root.withdraw()  # Hide the root window
+    
+    # Create a Toplevel window that will act as the notification bar
+    notification_bar = tk.Toplevel(root)
+    
+    # Remove window decorations (e.g., close, minimize buttons)
+    notification_bar.overrideredirect(True)
+    
+    # Set the window always on top
+    notification_bar.attributes("-topmost", True)
+    
+    # Set the background color and the message
+    notification_bar.configure(bg="yellow")
+    
+    # Create a label to display the notification message
+    notification_label = tk.Label(
+        notification_bar, 
+        text=notification_message, 
+        bg="yellow", 
+        fg="black", 
+        font=("Helvetica", 12)
+    )
+    notification_label.pack(padx=10, pady=5)
+    
+    # Set the position and size of the notification bar
+    screen_width = notification_bar.winfo_screenwidth()
+    notification_bar.geometry(f"{screen_width}x30+0+0")  # Full width, 30px height, positioned at the top
+    
+    # Destroy the notification after 5 seconds
+    notification_bar.after(5000, notification_bar.destroy)
 
-    # Set window size to the width of the screen and a small height (e.g., 50px)
-    screen_width = root.winfo_screenwidth()
-    bar_height = 100  # You can adjust the height
-    root.geometry(f"{screen_width}x{bar_height}+0+0")  # Full width, top of the screen
-
-    # Make the window borderless
-    root.overrideredirect(True)
-
-    # Create a pywebview window within tkinter
-    webview.create_window("Notification", "notification.html", frameless=True, width=screen_width, height=bar_height)
-
-    # Start the webview (this will run the webview loop)
-    webview.start()
-
-    # Close the tkinter window after the webview is done
+    # Run the Tkinter main loop
     root.mainloop()
+    exit()
 
-# Example usage
+
+# Usage example:
 if __name__ == "__main__":
-    create_notification_bar()
+    create_notification_bar("This is a notification!")
