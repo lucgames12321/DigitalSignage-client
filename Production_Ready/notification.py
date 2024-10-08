@@ -3,7 +3,7 @@ from tkinter import messagebox
 import os
 
 # Ensure this is set correctly!!!!!!
-os.environ["DISPLAY"] = ":1"   
+os.environ["DISPLAY"] = ":0"   
 
 def create_notification_bar(notification_message):
     # Create a root window (but we'll hide it, it's just needed for initialization)
