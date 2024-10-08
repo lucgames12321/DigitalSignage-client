@@ -1,7 +1,5 @@
 # Digital Signage Client
 
-## Description
-
 This project contains a Python script designed to open a webpage on the chromium-browser installed on any linux distro. The script will try to:
 - Open Chromium Browser with provided link you input in the script when prompted
 - Opens Chromium Browser in fullscreen (Kiosk mode).
