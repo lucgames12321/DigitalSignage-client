@@ -30,14 +30,12 @@ This project contains a Python script designed to open a webpage on the chromium
     - `python3-webview` - Used for displaying web apps in the notification bar.
     - `xdotool` - used for doing keypresses in the background to change the URL, etc.
     - `chromium-browser` - Used as browser for displaying the webpages.
-
     ```bash
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt install python3 python3-tk python3-webview xdotool chromium-browser
     ```
 5. Also reccomended:
    - `unclutter` - Used for automaticly removing the cursor from the screen.
-
     ```bash
     sudo apt install unclutter
     ```
