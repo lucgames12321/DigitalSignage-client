@@ -28,6 +28,7 @@ This project contains a Python script designed to open a webpage on the chromium
     sudo apt-get update && sudo apt-get upgrade -y
     sudo apt install python3 python3-tk python3-webview xdotool chromium-browser
 ```
+
     - `python3` - Used for the script.
     - `python3-tk` - Tkinter package used for the notifications.
     - `python3-webview` - Used for displaying web apps in the notification bar.
@@ -39,6 +40,7 @@ This project contains a Python script designed to open a webpage on the chromium
 ```bash
     sudo apt install unclutter
 ```
+
    - `unclutter` - Used for automaticly removing the cursor from the screen.
 
 
