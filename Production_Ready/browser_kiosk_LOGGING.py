@@ -12,17 +12,20 @@ def change_url(new_url):
     """
 
     # Execute the xdotool commands
-    subprocess.run(xdotool_commands, shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(xdotool_commands, shell=True)
+
 
 # Function to check if Chromium is running
 def is_chromium_running():
     try:
         # Use pgrep to check if any Chromium process is running
-        result = subprocess.run(['pgrep', '-f', 'chromium-browser'], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        result = subprocess.run(['pgrep', '-f', 'chromium-browser'], stdout=subprocess.PIPE)
         return result.returncode == 0  # return True if Chromium is running
     except Exception as e:
         print(f"Error checking Chromium process: {e}")
         return False
+
+
 
 # Function to open Chromium in kiosk mode
 def open_chromium(url):
@@ -41,21 +44,26 @@ def open_chromium(url):
         "--disable-background-timer-throttling",  # Disable background timer throttling (might prevent performance issues)
         "--disable-backgrounding-occluded-windows",  # Prevents backgrounding of non-visible windows (useful in kiosk mode)
         "--disable-breakpad",  # Disables the crash reporting (may avoid related crashes)
-        "--use-fake-ui-for-media-stream",  # Avoid camera/microphone prompts
+         "--use-fake-ui-for-media-stream",  # Avoid camera/microphone prompts
         "--disable-camera",  # Disable camera access
         url
     ]
+
+
 
     # Set the DISPLAY environment variable to :0
     env = os.environ.copy()
     env["DISPLAY"] = ":0"  # Target the Raspberry Pi's screen
 
+
+
+
     try:
-        # Run the command with the modified environment to launch Chromium
-        # Suppress stderr and stdout
-        subprocess.Popen(chromium_command, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # Run the command with the modified environment to launch Chromium.
+        subprocess.Popen(chromium_command, env=env)
     except Exception as e:
         print(f"Error running Chromium in kiosk mode: {e}")
+
 
 # Main loop to continuously ask for new URLs
 while True:
