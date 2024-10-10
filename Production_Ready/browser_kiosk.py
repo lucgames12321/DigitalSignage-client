@@ -76,5 +76,5 @@ while True:
         except Exception as e:
             print(f"Error changing URL: {e}")
     else:
-        print("Chromium is not running, launching Chromium.")
+        print("Launching Chromium.")
         open_chromium(url)
