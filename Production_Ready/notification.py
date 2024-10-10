@@ -28,7 +28,7 @@ def create_notification_bar(notification_message):
         text=notification_message, 
         bg="#fd7e14", 
         fg="#f8f9fa", 
-        font=("Comic Sans MS", 24, "bold"),
+        font=("Terminal", 24, "bold"),
         wraplength=notification_bar.winfo_screenwidth() - 20  # Set wrap length to screen width with padding
     )
     
