@@ -30,6 +30,28 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 @unclutter -idle 1
 ```
 
+
+
+# Dit stuk moet nog gerevamped worden:
+## Change boot screen logo
+Voor de RPI wordt er gebruik gemaakt van `plymouyh` voor de bootscreen manager
+`/usr/share/plymouth/themes/pix` is waar de splashcreen vervangen moet worden.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Additional Configuration for PI 4 (Not needed for the PI 5)
 To remove errors, install the following packages:
 ```bash
