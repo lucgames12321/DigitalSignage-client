@@ -1,11 +1,11 @@
 
 # DigitalSignage Client - Production Ready
+In this file you will find the configuration steps used to setup a Raspberry PI for DigitalSignage.
 
 ## Browser Configuration
 - Chromium browser as the main browser
 - Third-party cookies disabled
 - **Translator disabled!!!**
-
 
 
 ## Mouse Cursor Configuration
