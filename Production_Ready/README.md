@@ -21,11 +21,11 @@ Afterwards, select finish and reboot the Pi as prompted.
 
 > Note: If this step is not completed, the mouse cursor will not disappear unless the graphics driver is set to X11!
 
-Add the following command to the startup file to hide the mouse cursor after 1 second of inactivity:
+**(Optional normally mouse disappears after 5 seconds)** Add the following command to the startup file to hide the mouse cursor after 1 second of inactivity:
 ```bash
 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 ```
-Append the following line at the end:
+**(Optional)** Append the following line at the end:
 ```bash
 @unclutter -idle 1
 ```
