@@ -30,7 +30,7 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 @unclutter -idle 1
 ```
 
-## Additional Configuration for PI 4 (Not needed for the PI 5)
+# Additional Configuration for PI 4 (Not needed for the PI 5)
 To remove errors, install the following packages:
 ```bash
 sudo apt install mesa-utils mesa-vulkan-drivers
