@@ -1,3 +1,12 @@
+###############################################################################
+#
+# This script creates a notification bar that displays a message at the top of the screen.
+# PRODUCTION READY!!!
+#
+###############################################################################
+
+
+
 import tkinter as tk
 from tkinter import messagebox
 import os

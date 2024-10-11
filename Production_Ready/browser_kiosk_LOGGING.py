@@ -1,3 +1,12 @@
+###############################################################################
+#
+# Opens chosen URL in Chromium in kiosk mode. With logging features.
+# PRODUCTION READY!!!
+#
+###############################################################################
+
+
+
 import subprocess
 import os
 
