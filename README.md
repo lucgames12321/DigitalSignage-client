@@ -5,6 +5,8 @@ This project contains a Python script designed to open a webpage on the chromium
 - Opens Chromium Browser in fullscreen (Kiosk mode).
 - Will display notifications set within the script to show on top of the full screen windows.
 
+## Important
+Please refer to the `repo/Production_Ready/README.md` file for crucial information. This file contains the necessary settings for the Raspberry Pi and additional configurations.
 
 ## Installation
 
