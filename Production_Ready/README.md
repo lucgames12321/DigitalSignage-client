@@ -61,10 +61,10 @@ sudo apt install python3-psutil
 ```
 
 ## GPU Memory Allocation (Optional)
-We only need to do this step if your using PI 4, because they allocate not sufficient GPU Memory
+We only need to do this step if your using PI 4, because they allocate not sufficient GPU Memory.
 We have adjusted the GPU memory allocation to 256MB:
 ```bash
-sudo nano /boot/config.txt
+sudo nano /boot/firmware/config.txt
 ```
 Add the following line to the file:
 ```bash
