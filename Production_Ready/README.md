@@ -5,6 +5,7 @@ In this file you will find the configuration steps used to setup a Raspberry PI 
 ## Browser Configuration
 - Chromium browser as the main browser
 - Third-party cookies disabled
+- Install extensions like Adblock and accept cookies
 - **Translator disabled!!!**
 
 
@@ -33,6 +34,11 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 
 
 # Dit stuk moet nog gerevamped worden:
+
+## Install xdotool
+sudo apt-getinstall xdotool
+
+
 ## Change boot screen logo
 Voor de RPI wordt er gebruik gemaakt van `plymouyh` voor de bootscreen manager
 `/usr/share/plymouth/themes/pix` is waar de splashcreen vervangen moet worden.
