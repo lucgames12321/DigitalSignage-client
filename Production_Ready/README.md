@@ -2,12 +2,6 @@
 # DigitalSignage Client - Production Ready
 In this file you will find the configuration steps used to setup a Raspberry PI for DigitalSignage.
 
-## Browser Configuration
-- Chromium browser as the main browser
-- Third-party cookies disabled
-- Install extensions like Adblock and accept cookies
-- **Translator disabled!!!**
-
 ## Configure Raspberry Pi Settings
 Use `raspi-config` to configure essential settings:
 - **System Options**: Change the hostname to your preferred name.
@@ -19,6 +13,12 @@ Use `raspi-config` to configure essential settings:
 > Note: After making these changes, select "Finish" and reboot your Raspberry Pi when prompted.
 
 
+## Browser Configuration
+- Chromium browser as the main browser
+- Third-party cookies disabled
+- Install extensions like Adblock and accept cookies
+- **Translator disabled!!!**
+
 
 ## Install Dependencies and xdotool
 To ensure your Raspberry Pi is up to date and has all necessary dependencies for running this project, run the following commands:
@@ -27,8 +27,6 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install python3 python3-tk python3-webview xdotool unclutter chromium-browser
 sudo reboot
 ```
-
-
 
 ## Mouse Cursor Configuration
 Unclutter is installed to hide the mouse cursor:
@@ -55,25 +53,10 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 
 
 # Dit stuk moet nog gerevamped worden:
-
-
-
-
-
-
+Dit moet nog aangepast worden
 ## Change boot screen logo
 Voor de RPI wordt er gebruik gemaakt van `plymouyh` voor de bootscreen manager
 `/usr/share/plymouth/themes/pix` is waar de splashcreen vervangen moet worden.
-
-
-
-
-
-
-
-
-
-
 
 
 
