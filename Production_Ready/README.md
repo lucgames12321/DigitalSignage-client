@@ -41,6 +41,15 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install python3 python3-tk python3-webview xdotool chromium-browser
 ```
 
+## Configure raspi-config
+- System Options > Change hostname
+- Display Options > Disable Screen blanking
+- Interface Options > Enable SSH
+- Advanced Options > Expand Filesystem
+- **if not set:** Advanced Options > Wayland > X11
+
+> Note: after these changes you need to click on finish and reboot now!
+
 
 
 ## Change boot screen logo
