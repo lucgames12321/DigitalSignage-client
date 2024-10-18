@@ -2,6 +2,17 @@
 # DigitalSignage Client - Production Ready
 In this file you will find the configuration steps used to setup a Raspberry PI for DigitalSignage.
 
+## Configure Raspberry Pi Settings
+Use `raspi-config` to configure essential settings:
+- **System Options**: Change the hostname to your preferred name.
+- **Display Options**: Disable screen blanking to prevent the screen from turning off.
+- **Interface Options**: Enable SSH for remote access.
+- **Advanced Options**: Expand the filesystem to use the full SD card capacity.
+- **Advanced Options**: If not already set, configure Wayland to use X11.
+
+> Note: After making these changes, select "Finish" and reboot your Raspberry Pi when prompted.
+
+
 ## Browser Configuration
 - Chromium browser as the main browser
 - Third-party cookies disabled
@@ -9,12 +20,20 @@ In this file you will find the configuration steps used to setup a Raspberry PI 
 - **Translator disabled!!!**
 
 
+## Install Dependencies and xdotool
+To ensure your Raspberry Pi is up to date and has all necessary dependencies for running this project, run the following commands:
+```bash
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt install python3 python3-tk python3-webview xdotool unclutter chromium-browser
+sudo reboot
+```
+
 ## Mouse Cursor Configuration
 Unclutter is installed to hide the mouse cursor:
 ```bash
 sudo apt install unclutter
 ```
-Then configure via:
+**If not already done:** configure:
 ```bash
 sudo raspi-config > Advanced > A6 Wayland > X11
 ```
@@ -34,38 +53,10 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 
 
 # Dit stuk moet nog gerevamped worden:
-
-## Install dependencies and xdotool
-```bash
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install python3 python3-tk python3-webview xdotool chromium-browser
-sudo reboot
-```
-
-## Configure raspi-config
-- System Options > Change hostname
-- Display Options > Disable Screen blanking
-- Interface Options > Enable SSH
-- Advanced Options > Expand Filesystem
-- **if not set:** Advanced Options > Wayland > X11
-
-> Note: after these changes you need to click on finish and reboot now!
-
-
-
+Dit moet nog aangepast worden
 ## Change boot screen logo
 Voor de RPI wordt er gebruik gemaakt van `plymouyh` voor de bootscreen manager
 `/usr/share/plymouth/themes/pix` is waar de splashcreen vervangen moet worden.
-
-
-
-
-
-
-
-
-
-
 
 
 
