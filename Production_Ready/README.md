@@ -38,6 +38,10 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 ## Install xdotool
 sudo apt-getinstall xdotool
 
+## Install dependecies
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt install python3 python3-tk python3-webview xdotool chromium-browser
+
 
 ## Change boot screen logo
 Voor de RPI wordt er gebruik gemaakt van `plymouyh` voor de bootscreen manager
