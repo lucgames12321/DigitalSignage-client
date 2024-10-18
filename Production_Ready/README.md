@@ -35,12 +35,12 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 
 # Dit stuk moet nog gerevamped worden:
 
-## Install xdotool
-sudo apt-getinstall xdotool
-
-## Install dependecies
+## Install dependencies and xdotool
+```bash
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install python3 python3-tk python3-webview xdotool chromium-browser
+```
+
 
 
 ## Change boot screen logo
