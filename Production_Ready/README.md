@@ -39,6 +39,7 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install python3 python3-tk python3-webview xdotool chromium-browser
+sudo reboot
 ```
 
 ## Configure raspi-config
