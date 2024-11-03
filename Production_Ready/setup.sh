@@ -11,7 +11,7 @@ clear # Clear the terminal
 echo "################################################################################"
 echo "#                                                                              #"
 echo "#                   Digital Signage Automatic Setup Script                     #"
-echo "#                                Version 1.2.7b                                   #"
+echo "#                                Version 1.2.7b                                #"
 echo "#                           Made by DonerNator                                 #"
 echo "#                                                                              #"
 echo "################################################################################"
