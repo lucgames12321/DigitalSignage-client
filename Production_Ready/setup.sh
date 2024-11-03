@@ -8,7 +8,7 @@ fi
 
 # Script information
 clear # Clear the terminal
-echo "Digital Signage Setup Script"
+echo "##############################Digital Signage Automatic Setup Script##############################"
 echo "Version 1.2"
 echo "This script will update and upgrade your system, install necessary packages, and configure your Raspberry Pi."
 
