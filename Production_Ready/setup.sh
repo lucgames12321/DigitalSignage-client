@@ -11,7 +11,7 @@ clear # Clear the terminal
 echo "################################################################################"
 echo "#                                                                              #"
 echo "#                   Digital Signage Automatic Setup Script                     #"
-echo "#                                Version 1.2.7b                                #"
+echo "#                                Version 1.2.7e                                #"
 echo "#                           Made by DonerNator                                 #"
 echo "#                                                                              #"
 echo "################################################################################"
@@ -19,6 +19,19 @@ echo ""
 echo "# This script will update and upgrade your system, install necessary packages, #"
 echo "# and configure your Raspberry Pi.                                             #"
 echo ""
+
+
+# Check if the script has been run before
+if [ -f "/var/log/digital_signage_setup.log" ]; then
+    echo "Setup script has already been run. Skipping setup steps..."
+    tail -n +119 "$0" | bash
+    exit 0
+fi
+
+# Create a log file to indicate the script has been run
+sudo touch /var/log/digital_signage_setup.log
+
+
 
 
 # Ask for user input to proceed with installation
@@ -93,7 +106,6 @@ clear
 echo "Configuration done."
 
 
-
 # Ask if the user wants to reboot
 read -p "Do you want to reboot your Raspberry Pi now? (Y/n): " reboot_input
 if [[ "$reboot_input" == "Y" || "$reboot_input" == "y" ]]; then
@@ -103,20 +115,6 @@ else
 fi
 
 
-
-
-
-
-
-
-
-# Check if the script has already been run
-if [ -f /var/log/digital_signage_setup.log ]; then
-    echo "Setup has already been completed. Skipping steps."
-else
-    # Mark the script as run
-    touch /var/log/digital_signage_setup.log
-fi
 
 # Pull the script from the GitHub repository and set up a systemd service
 echo "Setting up the Digital Signage service..."
