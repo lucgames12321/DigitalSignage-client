@@ -11,8 +11,8 @@ clear # Clear the terminal
 echo "################################################################################"
 echo "#                                                                              #"
 echo "#                   Digital Signage Automatic Setup Script                     #"
-echo "#                                Version 1.2.7e                                #"
-echo "#                           Made by DonerNator                                 #"
+echo "#                                Version 1.3.1                                 #"
+echo "#                             Made by DonerNator                               #"
 echo "#                                                                              #"
 echo "################################################################################"
 echo ""
@@ -63,7 +63,7 @@ echo " Done."
 
 # Install necessary packages
 echo "Installing necessary packages..."
-sudo apt install -y python3 python3-tk python3-webview xdotool unclutter chromium-browser > /dev/null 2>&1 &
+sudo apt install -y python3 python3-tk python3-webview python3-socketio python3-subprocess-tee xdotool unclutter chromium-browser > /dev/null 2>&1 &
 pid=$!
 while ps -p $pid > /dev/null; do
     echo -n "."
@@ -121,7 +121,7 @@ echo "Setting up the Digital Signage service..."
 
 # Define variables
 REPO_URL="https://github.com/lucgames12321/DigitalSignage-client.git"
-SERVICE_NAME="digital_signage"
+SERVICE_NAME="DigitalSignage"
 SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME.service"
 
 # Clone the repository
@@ -139,7 +139,7 @@ Description=Digital Signage Service
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 /opt/$SERVICE_NAME/Production_Ready/browser_kiosk.py
+ExecStart=/usr/bin/python3 /opt/$SERVICE_NAME/Production_Ready/raspberrypi_kiosk.py
 WorkingDirectory=/opt/$SERVICE_NAME/Production_Ready
 StandardOutput=inherit
 StandardError=inherit
@@ -161,3 +161,8 @@ echo "Digital Signage service setup complete."
 
 # Script done running
 echo "Script done running. Everything is ready to go! Exiting..."
+echo "If you want to run the script again, please delete the /var/log/digital_signage_setup.log file."
+echo "If you have any questions or issues, please contact me on GitHub: DonerNator"
+echo "Thank you for using the Digital Signage Automatic Setup Script."
+echo "type sudo systemctl status DigitalSignage to check the status of the service"
+echo "Exiting..."
