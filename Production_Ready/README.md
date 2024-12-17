@@ -2,6 +2,31 @@
 # DigitalSignage Client - Production Ready
 In this file you will find the configuration steps used to setup a Raspberry PI for DigitalSignage.
 
+
+## Easy Install Script
+
+To simplify the installation process, you can use the provided `setup.sh` script. Follow these steps to download and execute it on your Raspberry Pi 5:
+
+1. Open a terminal on your Raspberry Pi.
+2. Clone the repository containing the `setup.sh` script:
+    ```bash
+    git clone https://github.com/your-repo/DigitalSignage-client.git
+    ```
+3. Navigate to the directory containing the script:
+    ```bash
+    cd DigitalSignage-client/Production_Ready
+    ```
+4. Make the script executable:
+    ```bash
+    chmod +x setup.sh
+    ```
+5. Run the script:
+    ```bash
+    ./setup.sh
+    ```
+
+This script will automatically install all necessary dependencies and configure your Raspberry Pi for DigitalSignage.
+
 ## Configure Raspberry Pi Settings
 Use `raspi-config` to configure essential settings:
 - **System Options**: Change the hostname to your preferred name.
@@ -24,7 +49,9 @@ Use `raspi-config` to configure essential settings:
 To ensure your Raspberry Pi is up to date and has all necessary dependencies for running this project, run the following commands:
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
-sudo apt install python3 python3-tk python3-webview xdotool unclutter chromium-browser
+
+sudo python3 python3-socketio python3-subprocess-tee xdotool unclutter chromium-browser
+
 sudo reboot
 ```
 
