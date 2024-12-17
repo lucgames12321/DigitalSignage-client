@@ -9,21 +9,29 @@ To simplify the installation process, you can use the provided `setup.sh` script
 
 1. Open a terminal on your Raspberry Pi.
 2. Clone the repository containing the `setup.sh` script:
+
     ```bash
-    git clone https://github.com/your-repo/DigitalSignage-client.git
+    git clone https://github.com/lucgames12321/DigitalSignage-client.git
     ```
-3. Navigate to the directory containing the script:
+
+4. Navigate to the directory containing the script:
+
     ```bash
     cd DigitalSignage-client/Production_Ready
     ```
-4. Make the script executable:
+    
+6. Make the script executable:
+
     ```bash
     chmod +x setup.sh
     ```
-5. Run the script:
+    
+8. Run the script:
+
     ```bash
     ./setup.sh
     ```
+    
 
 This script will automatically install all necessary dependencies and configure your Raspberry Pi for DigitalSignage.
 
