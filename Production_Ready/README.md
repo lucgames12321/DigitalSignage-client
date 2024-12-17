@@ -57,9 +57,7 @@ Use `raspi-config` to configure essential settings:
 To ensure your Raspberry Pi is up to date and has all necessary dependencies for running this project, run the following commands:
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
-
 sudo python3 python3-socketio python3-subprocess-tee xdotool unclutter chromium-browser
-
 sudo reboot
 ```
 
