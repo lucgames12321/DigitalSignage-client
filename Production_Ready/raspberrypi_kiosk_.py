@@ -1,6 +1,7 @@
 import socketio
 import subprocess
 import socket
+import os
 
 # Create a Socket.IO client instance
 sio = socketio.Client()
@@ -27,10 +28,14 @@ def disconnect():
 def on_update_url(data):
     print(f"Received new URL: {data['url']}")
     # Command to open the new URL in Chromium
-    subprocess.run([chromium_path, "--noerrdialogs", "--disable-infobars", "--kiosk", data['url']])
+    with open(os.devnull, 'w') as devnull:
+        subprocess.run(
+            [chromium_path, "--noerrdialogs", "--disable-infobars", "--kiosk", data['url']],
+            stderr=devnull  # Redirect stderr to /dev/null
+        )
 
-# Connect to the Socket.IO server --- CHANGE THIS TO THE CORRECT IP AND PORT
-sio.connect('http://localhost:8080')
+# Connect to the Socket.IO server
+sio.connect('http://10.90.1.1:8003')
 
 # Keep the client running
 sio.wait()
