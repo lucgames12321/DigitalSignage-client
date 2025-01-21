@@ -31,30 +31,29 @@ To simplify the installation process, you can use the provided `setup.sh` script
     ```bash
     ./setup.sh
     ```
-    
 
 This script will automatically install all necessary dependencies and configure your Raspberry Pi for DigitalSignage.
 
 -----------------------------------------------------------------------
 ## Configure Raspberry Pi Settings
-Use `raspi-config` to configure essential settings:
+Use `sudo raspi-config` to configure essential settings:
 - **System Options**: Change the hostname to your preferred name.
 - **Display Options**: Disable screen blanking to prevent the screen from turning off.
 - **Interface Options**: Enable SSH for remote access.
 - **Advanced Options**: Expand the filesystem to use the full SD card capacity.
-- **Advanced Options**: If not already set, configure Wayland to use X11.
+- **Advanced Options: Configure Wayland to use X11!!!**
 
-> Note: After making these changes, select "Finish" and reboot your Raspberry Pi when prompted.
-
+> Note: After making these changes, select "Finish" and reboot your Raspberry Pi when prompted!!!
 -----------------------------------------------------------------------
 ## Browser Configuration
-- Chromium browser as the main browser
-- Third-party cookies disabled
-- Install extensions like Adblock and accept cookies
-- **Translator disabled!!!**
+For the browser there are some settings that can solve some problems/improve the viewing experience:
+- Chromium browser as the main browser.
+- Third-party cookies disabled.
+- Install extensions like Adblock and accept cookies.
+- Translator disabled.
 
 -----------------------------------------------------------------------
-## Install Dependencies and xdotool
+## Install Dependencies for Python script
 To ensure your Raspberry Pi is up to date and has all necessary dependencies for running this project, run the following commands:
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
@@ -140,30 +139,39 @@ sudo reboot
 
 -----------------------------------------------------------------------
 ## Mouse Cursor Configuration
+
 Unclutter is installed to hide the mouse cursor:
+
 ```bash
 sudo apt install unclutter
 ```
-**If not already done:** configure:
+
+**If not already done:** configure Wayland to use X11:
+
 ```bash
-sudo raspi-config > Advanced > A6 Wayland > X11
+sudo raspi-config
 ```
-Afterwards, select finish and reboot the Pi as prompted.
 
-> Note: If this step is not completed, the mouse cursor will not disappear unless the graphics driver is set to X11!
+Navigate to `Advanced Options > A6 Wayland > X11`. Afterward, select "Finish" and reboot the Pi as prompted. If this step is not completed, the mouse cursor will not disappear unless the graphics driver is set to X11!!!!
 
-**(Optional normally mouse disappears after 5 seconds)** Add the following command to the startup file to hide the mouse cursor after 1 second of inactivity:
+(Optional) Normally, the mouse disappears after 5 seconds. To hide the mouse cursor after 1 second of inactivity, add the following command to the startup file:
+
 ```bash
 sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 ```
-**(Optional)** Append the following line at the end:
+
+Append the following line at the end:
+
 ```bash
 @unclutter -idle 1
 ```
 
 -----------------------------------------------------------------------
 ## Additional Configuration for PI 4 (Not needed for the PI 5)
-To remove errors, install the following packages:
+These configurations were found to solve some things when running the script on **PI 4**.
+
+### Remove error messages 
+Install the following packages:
 ```bash
 sudo apt install mesa-utils mesa-vulkan-drivers
 sudo apt install libgbm1
