@@ -71,7 +71,7 @@ nano /home/ds0X/Documents/kiosk_client.py # Change `ds0X` with the right user
 
 Make it executable:
 ```sh
-chmod +x /home/ds0X/Documents/kiosk_client.py
+chmod +x /home/ds0X/Documents/kiosk_client.py # Change `ds0X` with the right user
 ```
 
 ### Create a New Service File
