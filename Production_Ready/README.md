@@ -2,7 +2,7 @@
 # DigitalSignage Client - Production Ready
 In this file you will find the configuration steps used to setup a Raspberry PI for DigitalSignage.
 
-
+-----------------------------------------------------------------------
 ## Easy Install Script
 
 To simplify the installation process, you can use the provided `setup.sh` script. Follow these steps to download and execute it on your Raspberry Pi 5:
@@ -35,6 +35,7 @@ To simplify the installation process, you can use the provided `setup.sh` script
 
 This script will automatically install all necessary dependencies and configure your Raspberry Pi for DigitalSignage.
 
+-----------------------------------------------------------------------
 ## Configure Raspberry Pi Settings
 Use `raspi-config` to configure essential settings:
 - **System Options**: Change the hostname to your preferred name.
@@ -45,14 +46,14 @@ Use `raspi-config` to configure essential settings:
 
 > Note: After making these changes, select "Finish" and reboot your Raspberry Pi when prompted.
 
-
+-----------------------------------------------------------------------
 ## Browser Configuration
 - Chromium browser as the main browser
 - Third-party cookies disabled
 - Install extensions like Adblock and accept cookies
 - **Translator disabled!!!**
 
-
+-----------------------------------------------------------------------
 ## Install Dependencies and xdotool
 To ensure your Raspberry Pi is up to date and has all necessary dependencies for running this project, run the following commands:
 ```bash
@@ -60,7 +61,84 @@ sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install python3 python3-socketio python3-subprocess-tee python3-websocket xdotool unclutter chromium-browser
 sudo reboot
 ```
+-----------------------------------------------------------------------
+## Automate python script
+These steps are needed to run the Kiosk-client.py in the background as a systemctl service.
 
+### Create the Python script
+
+Create the Python script in the following directory:
+```sh
+nano /home/ds0X/Documents/kiosk_client.py
+```
+
+Make it executable:
+```sh
+chmod +x /home/ds0X/Documents/kiosk_client.py
+```
+
+### Create a new service file
+
+Create a new service file:
+```sh
+sudo nano /etc/systemd/system/kiosk-client.service
+```
+
+Paste the following:
+```ini
+[Unit]
+Description=Kiosk Client Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/ds0X/Documents/kiosk_client.py # REPLACE THIS WITH THE CORRECT USER
+WorkingDirectory=/home/ds0X/Documents # REPLACE THIS WITH THE CORRECT USER
+Restart=always
+RestartSec=5
+User=ds0X # REPLACE THIS WITH THE CORRECT USER
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Enable and start the service
+
+Reload the systemd manager configuration and enable the service:
+```sh
+sudo systemctl daemon-reload
+sudo systemctl enable kiosk-client.service
+sudo systemctl start kiosk-client.service
+```
+
+To Check the status of the service type the following:
+```sh
+sudo systemctl status kiosk-client.service
+```
+
+-----------------------------------------------------------------------
+## Load default page on reboot
+This will open a default webpage configured with these settings
+
+### Edit the autostart file
+To open a default URL on startup, edit the autostart file:
+```sh
+nano ~/.config/lxsession/LXDE-pi/autostart
+```
+
+Add this line at the end:
+```sh
+@chromium-browser --noerrdialogs --disable-infobars --kiosk https://threatmap.bitdefender.com/
+```
+
+### Reboot and test it
+The DigitalSIgnage screen should now: start the python script in the background as a service calles ``kiosk-client.service`` and open Chrome in kiosk mode with the default page ``https://threatmap.bitdefender.com/``
+```sh
+sudo reboot
+```
+
+-----------------------------------------------------------------------
 ## Mouse Cursor Configuration
 Unclutter is installed to hide the mouse cursor:
 ```bash
@@ -83,20 +161,8 @@ sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 @unclutter -idle 1
 ```
 
-
-
-# Dit stuk moet nog gerevamped worden:
-Dit moet nog aangepast worden
-## Change boot screen logo
-Voor de RPI wordt er gebruik gemaakt van `plymouyh` voor de bootscreen manager
-`/usr/share/plymouth/themes/pix` is waar de splashcreen vervangen moet worden.
-
-
-
-
-
-
-# Additional Configuration for PI 4 (Not needed for the PI 5)
+-----------------------------------------------------------------------
+## Additional Configuration for PI 4 (Not needed for the PI 5)
 To remove errors, install the following packages:
 ```bash
 sudo apt install mesa-utils mesa-vulkan-drivers
@@ -104,7 +170,7 @@ sudo apt install libgbm1
 sudo apt install python3-psutil
 ```
 
-## GPU Memory Allocation (Optional)
+### GPU Memory Allocation (Optional)
 We only need to do this step if your using PI 4, because they allocate not sufficient GPU Memory.
 We have adjusted the GPU memory allocation to 256MB:
 ```bash
