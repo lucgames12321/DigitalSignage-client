@@ -33,7 +33,8 @@ This script will automatically install all necessary dependencies and configure 
 Use `sudo raspi-config` to configure essential settings:
 - **System Options**: Change the hostname to your preferred name.
 - **Display Options**: Disable screen blanking to prevent the screen from turning off.
-- **Interface Options**: Enable SSH for remote access.
+- **Interface Options**: Enable SSH for remote SSH access.
+- **Interface Options**: Enable VNC for remote VNC access.
 - **Advanced Options**: Expand the filesystem to use the full SD card capacity.
 - **Advanced Options**: Configure Wayland to use X11.
 
