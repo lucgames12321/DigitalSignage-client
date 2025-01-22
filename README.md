@@ -5,7 +5,7 @@ This project contains a Python script designed to open a webpage on the chromium
 - Will display notifications set within the script to show on top of the full screen windows.
 
 ## 🚀 Installation
-For detailed installation instructions, please refer to the [**Production Ready Install README**](Production_Ready/README.md)!!!
+For detailed installation instructions, please refer to the [**Production Installation Documentation**](Production_Ready/README.md)!!!
 
 ## 🛠️ Usage
 To run the script, use the following command:
